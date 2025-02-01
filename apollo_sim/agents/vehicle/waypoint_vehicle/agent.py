@@ -4,7 +4,10 @@ import os
 import time
 
 import numpy as np
+import matplotlib
+matplotlib.use('Agg')  # Use the non-interactive backend
 import matplotlib.pyplot as plt
+
 
 from threading import Thread
 from typing import Dict
@@ -185,7 +188,6 @@ class WaypointVehicleAgent(object):
                 plt.figure()
                 plt.plot(self.plan_x, self.plan_y, 'b-')
                 plt.plot(self.actual_x, self.actual_y, 'r-')
-                plt.show()
                 plt.savefig(f"{self.debug_folder}/{self.prefix}_{self.actor.id}_traj.png")
                 plt.close()
             return
@@ -240,7 +242,6 @@ class WaypointVehicleAgent(object):
             plt.figure()
             plt.plot(self.plan_x, self.plan_y, 'b-')
             plt.plot(self.actual_x, self.actual_y, 'r-')
-            plt.show()
             plt.savefig(f"{self.debug_folder}/{self.prefix}_{self.actor.id}_traj.png")
             plt.close()
 
